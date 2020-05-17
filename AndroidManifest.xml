@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.asus.zenparts"
+    package="com.rebellion.deviceparts"
     android:sharedUserId="android.uid.system">
 
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
@@ -28,7 +28,7 @@
     <uses-sdk android:minSdkVersion="27" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
-    <protected-broadcast android:name="com.asus.zenparts.CUST_UPDATE" />
+    <protected-broadcast android:name="com.rebellion.deviceparts.CUST_UPDATE" />
 
     <application
         android:label="@string/advanced_settings"
@@ -73,12 +73,12 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.asus.zenparts.ambient.SensorsDozeService"
+        <service android:name="com.rebellion.deviceparts.ambient.SensorsDozeService"
                  android:permission="SensorsDozeService">
         </service>
 
         <activity
-            android:name="com.asus.zenparts.ambient.AmbientGesturePreferenceActivity"
+            android:name="com.rebellion.deviceparts.ambient.AmbientGesturePreferenceActivity"
             android:label="@string/ambient_display_gestures_title">
             android:icon="@drawable/ic_doze"
             <intent-filter>
@@ -93,7 +93,7 @@
             android:stopWithTask="false" />
 
         <service
-            android:name=".ZenpartsTile"
+            android:name=".DevicepartsTile"
             android:enabled="true"
             android:icon="@drawable/qs_asus"
             android:label="@string/advanced_settings"
@@ -104,7 +104,7 @@
         </service>
 
         <service
-            android:name="com.asus.zenparts.DimmerTile"
+            android:name="com.rebellion.deviceparts.DimmerTile"
             android:icon="@drawable/ic_backlight_qs"
             android:label="@string/backlight_dimmer"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
@@ -113,7 +113,7 @@
             </intent-filter>
         </service>
         <service
-            android:name="com.asus.zenparts.LogTile"
+            android:name="com.rebellion.deviceparts.LogTile"
             android:icon="@drawable/ic_qs_log"
             android:label="@string/quick_settings_log_tile_label"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
