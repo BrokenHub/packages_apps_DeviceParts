@@ -157,6 +157,14 @@
             android:icon="@drawable/ic_earpiece"
             android:title="@string/earpiece_gain" />
 
+        <com.rebellion.deviceparts.preferences.SecureSettingCustomSeekBarPreference 
+            android:defaultValue="0"
+            android:key="speaker_gain" 
+            android:max="20"
+            app:min="-10" 
+            android:icon="@drawable/ic_speaker"
+            android:title="@string/speaker_gain" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

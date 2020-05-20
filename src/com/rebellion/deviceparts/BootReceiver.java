@@ -80,6 +80,8 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
                 DeviceSettings.PREF_USB_FASTCHARGE, 0));
         FileUtils.setValue(DeviceSettings.SPECTRUM_SYSTEM_PROPERTY, Settings.Secure.getString(
                 context.getContentResolver(), DeviceSettings.PREF_SPECTRUM));
+        FileUtils.setValue(DeviceSettings.SPEAKER_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
+                DeviceSettings.PREF_SPEAKER_GAIN, 0));
         // Dirac
         context.startService(new Intent(context, DiracService.class));
 

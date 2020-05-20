@@ -67,6 +67,8 @@ public class DeviceSettings extends PreferenceFragment implements
     public static final String PREF_USB_FASTCHARGE = "fastcharge";
     public static final String USB_FASTCHARGE_PATH = "/sys/kernel/fast_charge/force_fast_charge";
     public static final String PREF_KEY_FPS_INFO = "fps_info";
+    public static final String PREF_SPEAKER_GAIN = "speaker_gain";
+    public static final String SPEAKER_GAIN_PATH = "/sys/kernel/sound_control/speaker_gain";
 
     private CustomSeekBarPreference mTorchBrightness;
     private VibratorStrengthPreference mVibratorStrength;
@@ -79,6 +81,7 @@ public class DeviceSettings extends PreferenceFragment implements
     private CustomSeekBarPreference mHeadphoneGain;
     private CustomSeekBarPreference mMicrophoneGain;
     private CustomSeekBarPreference mEarpieceGain;
+    private CustomSeekBarPreference mSpeakerGain;
     private SecureSettingSwitchPreference mFastcharge;
     private SecureSettingSwitchPreference mBacklightDimmer;
     private static Context mContext;
@@ -168,6 +171,9 @@ public class DeviceSettings extends PreferenceFragment implements
         mEarpieceGain = (CustomSeekBarPreference) findPreference(PREF_EARPIECE_GAIN);
         mEarpieceGain.setOnPreferenceChangeListener(this);
 
+        mSpeakerGain = (CustomSeekBarPreference) findPreference(PREF_SPEAKER_GAIN);
+        mSpeakerGain.setOnPreferenceChangeListener(this);
+
         if (FileUtils.fileWritable(USB_FASTCHARGE_PATH)) {
             mFastcharge = (SecureSettingSwitchPreference) findPreference(PREF_USB_FASTCHARGE);
             mFastcharge.setChecked(FileUtils.getFileValueAsBoolean(USB_FASTCHARGE_PATH, true));
@@ -247,6 +253,10 @@ public class DeviceSettings extends PreferenceFragment implements
                 } else {
                     this.getContext().stopService(fpsinfo);
                 }
+                break;
+
+            case PREF_SPEAKER_GAIN:
+                 FileUtils.setValue(SPEAKER_GAIN_PATH, (int) value);
                 break;
             default:
                 break;
