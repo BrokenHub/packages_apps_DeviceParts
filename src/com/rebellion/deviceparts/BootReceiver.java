@@ -69,22 +69,6 @@ public class BootReceiver extends BroadcastReceiver implements Utils {
         FileUtils.setValue(DeviceSettings.TORCH_2_BRIGHTNESS_PATH,
                 Settings.Secure.getInt(context.getContentResolver(),
                         DeviceSettings.PREF_TORCH_BRIGHTNESS, 100));
-        int gain = Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_HEADPHONE_GAIN, 4);
-        FileUtils.setValue(DeviceSettings.HEADPHONE_GAIN_PATH, gain + " " + gain);
-        FileUtils.setValue(DeviceSettings.MICROPHONE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_MICROPHONE_GAIN, 0));
-        FileUtils.setValue(DeviceSettings.EARPIECE_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_EARPIECE_GAIN, 0));
-        FileUtils.setValue(DeviceSettings.USB_FASTCHARGE_PATH, Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_USB_FASTCHARGE, 0));
-        FileUtils.setValue(DeviceSettings.SPECTRUM_SYSTEM_PROPERTY, Settings.Secure.getString(
-                context.getContentResolver(), DeviceSettings.PREF_SPECTRUM));
-        FileUtils.setValue(DeviceSettings.SPEAKER_GAIN_PATH, Settings.Secure.getInt(context.getContentResolver(),
-                DeviceSettings.PREF_SPEAKER_GAIN, 0));
-        // Dirac
-        context.startService(new Intent(context, DiracService.class));
-
        // Ambient
         context.startService(new Intent(context, SensorsDozeService.class));
 
